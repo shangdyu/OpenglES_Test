@@ -3,6 +3,7 @@ package com.shangdyu.cuijia.another;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ public class MainActivity extends Activity {
     SoundPool sp;
     HashMap<Integer, Integer> hm;
     int currStreamId;
+
+    MyTDView mview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,14 @@ public class MainActivity extends Activity {
         editor.commit();
         TextView tv = (TextView)this.findViewById(R.id.textView2);
         tv.setText(lastLoginTime);
+
+        ///////////////
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        mview = new MyTDView(this);
+        mview.requestFocus();
+        mview.setFocusableInTouchMode(true);
+        setContentView(mview);
     }
 
 
@@ -105,5 +116,18 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        mview.onResume();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        mview.onPause();
     }
 }
