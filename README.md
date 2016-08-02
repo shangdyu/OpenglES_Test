@@ -3,3 +3,5 @@ for leaning
 ##=====================================###
 this is proj is just for learning opengles
 now is diff
+
+goodbye world
