@@ -1,5 +1,6 @@
 # OpenglES_Test
-for leaning
+
+just for leaning git !!!!
 ##=====================================###
 this is proj is just for learning opengles
 now is diff
